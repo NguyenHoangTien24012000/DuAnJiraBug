@@ -1,5 +1,5 @@
 import { USER_LOGIN } from "../../util/constants/settingSystem"
-import { USLOGIN } from "../types/CyberBugsTypes"
+import { PROFILE_USER_LOGIN } from "../types/UsersType"
 
 let usLogin = {}
 
@@ -14,7 +14,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case USLOGIN :{
+        case PROFILE_USER_LOGIN :{
             state.userLogin = action.userLogin
             return {...state}
         }
