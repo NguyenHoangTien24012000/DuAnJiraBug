@@ -58,25 +58,15 @@ function App() {
            <Home {...propsRoute} />
       </div>
     }} /> */}
-    <HomeTemplate exact path ='/home' Component = {Home} />
-     <HomeTemplate exact path='/contact' Component ={Contact} />
-     <HomeTemplate exact path='/about' Component ={About} />
      <UseLoginTemplate exact path='/login' Component ={LoginCyberBug} />
-     <UseLoginTemplate exact path='/signup' Component ={SignUpCyberBugs} />
-     <HomeTemplate exact path='/detail/:id' Component={Detail} />
-     <HomeTemplate exact path='/profile' Component={Profile} />
-     <HomeTemplate exact path='/todolistrfc' Component={ToDoListRFC} />
-      <HomeTemplate exact path='/todolist' Component={ToDoList} />
-     <HomeTemplate exact path='/todolistredux' Component={ToDoListRedux} />
-     <HomeTemplate exact path = '/todolistsaga' Component={BaiTapToDoListSaga} />
-     <HomeTemplate exact path = '/demodrapdrop' Component={DemoDrapDrop} />
-     <Home exact path = '/demohocmodal' Component={DemoHocModal} />
+  
      <CyberBugsTemplate exact path = '/cyberbugs' Component={IndexCyberBugs}/>
-      <CyberBugsTemplate exact path = '/createproject' Component={CreateProject} />
-      <CyberBugsTemplate exact path = '/projectmanagement' Component={ProjectManagement} />
+       <CyberBugsTemplate exact path = '/createproject' Component={CreateProject} />
+
+      {/* <CyberBugsTemplate exact path = '/projectmanagement' Component={ProjectManagement} />
       <CyberBugsTemplate exact path = '/projectdetail/:projectId' Component={IndexCyberBugs} />
      <CyberBugsTemplate exact path='/' Component = {ProjectManagement} />
-     <CyberBugsTemplate path = "*" Component = {PageNotFound} />
+     <CyberBugsTemplate path = "*" Component = {PageNotFound} />  */}
     </Switch>
     
     </>

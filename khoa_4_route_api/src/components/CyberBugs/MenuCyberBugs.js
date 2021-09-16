@@ -29,7 +29,7 @@ export default function MenuCyberBugs() {
             </div>
             <div className="feature">
                 <div>
-                    <i class="fa fa-sign-in-alt"></i>
+                    <i className="fa fa-sign-in-alt"></i>
                     <NavLink to='/login' className="text-dark" activeClassName="font-weight-bold">Login</NavLink>
                 </div>
 

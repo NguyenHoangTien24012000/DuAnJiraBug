@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, connect, useSelector } from 'react-redux'
 import * as Yup from 'yup'
 import { get_project_action, update_project_action } from '../../redux/actions/CyberBugsAction';
+import { get_project_category_action } from '../../redux/actions/ProjectCategoryAction';
 
 function FormEditProject(props) {
     const arrProjectCategory = useSelector(state => state.ProjectCategoryCyberBugs.arrProjectCategory)
@@ -28,7 +29,7 @@ function FormEditProject(props) {
             type: 'SET_SUBMIT_PROJECT',
             submitFunction: handleSubmit
         })
-        dispatch(get_project_action())
+        dispatch(get_project_category_action())
     }, [])
 
     const handleEditorChange = ((content, editor) => {

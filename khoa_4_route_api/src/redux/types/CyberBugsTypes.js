@@ -7,7 +7,7 @@ export const USLOGIN = 'USLOGIN';
 
 //get project
 
-export const GET_PROJECT_CATEGORY_SAGA = 'GET_PROJECT_CATEGORY_SAGA'
+
 
 
 export const GET_PROJECT_CATEGORY = 'GET_PROJECT_CATEGORY'

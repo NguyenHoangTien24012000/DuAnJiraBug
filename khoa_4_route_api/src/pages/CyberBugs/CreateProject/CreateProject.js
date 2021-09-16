@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react'
 import { Editor } from '@tinymce/tinymce-react';
 import {useSelector,connect, useDispatch} from 'react-redux' ;
-import {Formik, withFormik,useFormik} from "formik"
+import {withFormik} from "formik"
 
 import * as Yup from 'yup';
-import { GET_PROJECT_CATEGORY } from '../../../redux/types/CyberBugsTypes';
-import { create_project_action, get_project_action } from '../../../redux/actions/CyberBugsAction';
+import { create_project_action } from '../../../redux/actions/ProjectAction';
+import { get_project_category_action } from '../../../redux/actions/ProjectCategoryAction';
 function CreateProject(props) {
     const arrProjectCategory = useSelector(state=>state.ProjectCategoryCyberBugs.arrProjectCategory)
-    
     const dispatch = useDispatch();
     useEffect(()=>{
-        dispatch(get_project_action())
+        dispatch(get_project_category_action())
     },[]);
     const {
         values,

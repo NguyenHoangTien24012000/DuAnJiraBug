@@ -1,18 +1,17 @@
 import { call ,put, takeLatest } from "redux-saga/effects";
-import { cyberbugsService } from "../../../services/CyberBugsServices";
+import { projectCategoryServices } from "../../../services/ProjectCategoryServices";
 import {  STATUS_CODE } from "../../../util/constants/settingSystem";
-import {  GET_PROJECT_CATEGORY, GET_PROJECT_CATEGORY_SAGA } from "../../types/CyberBugsTypes";
+import {  GET_PROJECT_CATEGORY_SAGA, SET_PROJECT_CATEGORY } from "../../types/ProjectCategoryType";
 
 
 
 function* getAllProjectCateGorySaga (action) {
-    
     try{
-        const {data, status} = yield call(cyberbugsService.getAllProjectCategory)
-        // console.log(data.content)
+        const {data, status} = yield call(projectCategoryServices.projectCategory)
+        
         if(status === STATUS_CODE.SUCCESS){
             yield put({
-                type : GET_PROJECT_CATEGORY,
+                type : SET_PROJECT_CATEGORY,
                 project : data.content
             })
         }

@@ -9,12 +9,6 @@ export const cyberbugsService ={
             data:userLogin
         })
     },
-    getAllProjectCategory:() =>{
-        return Axios({
-            url:`${DOMAIN_CYBERBUG}/ProjectCategory`,
-            method:'GET'
-        })
-    },
     createProjectCategory:(newProject) =>{
         return Axios({
             url:`${DOMAIN_CYBERBUG}/Project/createProject`,

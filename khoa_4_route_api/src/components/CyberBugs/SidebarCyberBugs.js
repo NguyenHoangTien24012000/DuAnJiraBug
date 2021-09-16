@@ -29,7 +29,7 @@ export default function SidebarCyberBugs() {
     },[])
     const dispatch = useDispatch()
     return (
-        <Layout>
+        <Layout style={{flex:"none"}}>
             <Sider trigger={null} collapsible collapsed={state.collapsed} style={{height:height}}>
                 <div className="text-center" onClick={toggle}>
                 <MenuOutlined style={{color : 'white',cursor:'pointer',fontSize:'25px'}} />

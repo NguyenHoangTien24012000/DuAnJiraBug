@@ -1,9 +1,11 @@
 import { all } from "redux-saga/effects";
 // import * as ToDoListSaga from './ToDoListSaga'
 // import * as CyberBugs from './CyberBugs/UserCyberBugsSaga'
-// import * as GetAllProjectCategory from './CyberBugs/ProjectCategorySaga';
+import * as GetAllProjectCategory from './CyberBugs/ProjectCategorySaga';
 // import * as CreateProject from './CyberBugs/ProjectCyberBugsSaga';
 import * as UsersCyberBugSagaUpdate from './CyberBugs/UsersCyberBugSagaUpdate'
+import * as ProjectUpdateSaga from './CyberBugs/ProjectUpdateSaga'
+
 export function * rootSaga(){
 
     // yield fork(getTaskApi); // ham non blocking bat dong bo chay khong can cho nhau
@@ -31,7 +33,9 @@ export function * rootSaga(){
       //   CreateProject.theoDoiUpDateStatusTask(),
       //   CreateProject.theoDoiGetTaskDetail(),
       // CreateProject.theoDoiHandelChangeTaskPostApi()
-      UsersCyberBugSagaUpdate.theoDoiSignIn()
+      UsersCyberBugSagaUpdate.theoDoiSignIn(),
+      GetAllProjectCategory.theoDoiGetAllProjectCateGory(),
+      ProjectUpdateSaga.theoDoiCreateProjectSaga()
         
 
    ])

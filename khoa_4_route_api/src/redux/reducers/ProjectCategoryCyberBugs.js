@@ -1,4 +1,4 @@
-import { GET_PROJECT_CATEGORY } from "../types/CyberBugsTypes"
+import {  SET_PROJECT_CATEGORY } from "../types/ProjectCategoryType"
 
 const initialState = {
     arrProjectCategory :[]
@@ -6,7 +6,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case GET_PROJECT_CATEGORY :{
+        case SET_PROJECT_CATEGORY :{
             state.arrProjectCategory = action.project
             return {...state}
         }
