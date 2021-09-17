@@ -1,0 +1,4 @@
+export const GET_TASK_TYPE_SAGA ='GET_TASK_TYPE_SAGA'
+
+
+export const SET_TASK_TYPE ='SET_TASK_TYPE'

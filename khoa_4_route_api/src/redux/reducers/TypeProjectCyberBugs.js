@@ -1,4 +1,5 @@
-import { GET_TASK_TYPE } from "../types/CyberBugsTypes"
+
+import { SET_TASK_TYPE } from "../types/TaskType"
 
 const initialState = {
     typeTaskArr : []
@@ -7,7 +8,7 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
 
-    case GET_TASK_TYPE:
+    case SET_TASK_TYPE:
         return { ...state, typeTaskArr : action.typeTaskArr }
 
     default:

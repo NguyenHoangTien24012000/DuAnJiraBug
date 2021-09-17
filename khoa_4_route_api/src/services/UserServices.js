@@ -8,9 +8,7 @@ export class UserServices extends BaseServices{
     assignUserProject = (userProject) =>{
         return this.post(`Project/assignUserProject`, userProject)
     }
-    removeUserFromProject = (userProject) =>{
-        return this.post(`Project/removeUserFromProject`,userProject)
-    }
+  
 }
 
 

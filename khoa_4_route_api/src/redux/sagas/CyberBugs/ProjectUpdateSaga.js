@@ -4,7 +4,8 @@ import { STATUS_CODE } from "../../../util/constants/settingSystem";
 import { history } from "../../../util/history";
 import { notifiFuntion } from "../../../util/Notification/notifictionCyberBugs";
 import { DISPLAY_LOADING, HIDE_LOADING } from "../../types/LoadingConst";
-import { ASSIGN_USER_TASK_SAGA, CREATE_PROJECT_SAGA, DELETE_PROJECT_SAGA, GET_ALL_PROJECT, GET_ALL_PROJECT_SAGA, REMOVE_USER_FROM_PROJECT, UP_DATE_PROJECT_SAGA } from "../../types/ProjectType";
+import { PUT_PROJECT_DETAIL } from "../../types/ProjectEditType";
+import { ASSIGN_USER_TASK_SAGA, CREATE_PROJECT_SAGA, DELETE_PROJECT_SAGA, GET_ALL_PROJECT, GET_ALL_PROJECT_SAGA, GET_PROJECT_DETAIL_SAGA, REMOVE_USER_FROM_PROJECT, UP_DATE_PROJECT_SAGA } from "../../types/ProjectType";
 
 
 function * createProjectSaga(action){
@@ -179,4 +180,34 @@ function* removeUserFromProject(action) {
 
 export function* theoDoiRemoveUserFromProjectSaga() {
     yield takeLatest(REMOVE_USER_FROM_PROJECT, removeUserFromProject)
+}
+
+
+
+function* getProjectDetail(action) {
+    console.log(action.user)
+    yield put({
+        type: DISPLAY_LOADING
+    })
+    yield delay(500)
+    try {
+        const { data, status } = yield call(() => projectServiesUpdate.getProjectDetail(action.projectId))
+        if (status === STATUS_CODE.SUCCESS) {
+          yield put({
+              type :PUT_PROJECT_DETAIL,
+              projectDetail : data.content
+          })
+        }
+    } catch (err) {
+        console.log(err.response.data)
+      
+    }
+    yield put({
+        type: HIDE_LOADING
+    })
+}
+
+
+export function* theoDoiGetProjectDetailSaga() {
+    yield takeLatest(GET_PROJECT_DETAIL_SAGA, getProjectDetail)
 }

@@ -7,7 +7,7 @@ export const signin_cyberbug_action = (userLogin) => ({
 })
 
 
-export const get_user_action = (value) =>({
+export const get_user_action = () =>({
     type : GET_USER_SAGA,
-    value : value
+    value : ''
 })

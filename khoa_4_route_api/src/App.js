@@ -62,7 +62,6 @@ function App() {
   
      <CyberBugsTemplate exact path = '/cyberbugs' Component={IndexCyberBugs}/>
        <CyberBugsTemplate exact path = '/createproject' Component={CreateProject} />
-
       <CyberBugsTemplate exact path = '/projectmanagement' Component={ProjectManagement} />
       <CyberBugsTemplate exact path = '/projectdetail/:projectId' Component={IndexCyberBugs} />
      <CyberBugsTemplate exact path='/' Component = {ProjectManagement} />

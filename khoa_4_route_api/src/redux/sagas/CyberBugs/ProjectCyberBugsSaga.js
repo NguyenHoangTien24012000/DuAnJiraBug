@@ -1,7 +1,7 @@
 import { call, delay, put, select, takeLatest } from "redux-saga/effects";
 import { cyberbugsService } from "../../../services/CyberBugsServices";
 import { STATUS_CODE } from "../../../util/constants/settingSystem";
-import { CHANGE_ASSIGNESS, CHANGE_TASK_MODAL, CREATE_PROJECT_CATEGORY_SAGA, CREATE_TASK_SAGA, DELETE_PROJECT_SAGA, GET_LIST_PROJECT, GET_LIST_PROJECT_SAGA, GET_PRIORITY, GET_PRIORITY_SAGA, GET_PROJECT_DETAIL_SAGA, GET_STATUS_ALL, GET_STATUS_ALL_SAGA, GET_TASK_DETAIL_SAGA, GET_TASK_TYPE, GET_TASK_TYPE_SAGA, GET_USER_BY_PROJECT_ID, GET_USER_BY_PROJECT_ID_SAGA, HANDLE_CHANGE_TASK_POST_API_SAGA, REMOVE_USER_TASK, TASK_DETAIL_MODAIL, TASK_DETAIL_MODAIL_SAGA, UPDATE_PROJECT, UPDATE_STATUS_TASK_SAGA, UP_DATE_PROJECT_SAGA } from "../../types/CyberBugsTypes";
+import { CHANGE_ASSIGNESS, CHANGE_TASK_MODAL, CREATE_PROJECT_CATEGORY_SAGA, CREATE_TASK_SAGA, DELETE_PROJECT_SAGA, GET_LIST_PROJECT, GET_LIST_PROJECT_SAGA, GET_PRIORITY, GET_PRIORITY_SAGA, GET_PROJECT_DETAIL_SAGA, GET_TASK_DETAIL_SAGA, GET_TASK_TYPE, GET_USER_BY_PROJECT_ID, GET_USER_BY_PROJECT_ID_SAGA, HANDLE_CHANGE_TASK_POST_API_SAGA, REMOVE_USER_TASK, TASK_DETAIL_MODAIL, TASK_DETAIL_MODAIL_SAGA, UPDATE_PROJECT, UPDATE_STATUS_TASK_SAGA, UP_DATE_PROJECT_SAGA } from "../../types/CyberBugsTypes";
 import { DISPLAY_LOADING, HIDE_LOADING } from "../../types/LoadingConst";
 import { history } from "../../../util/history";
 import { projectServices } from "../../../services/ProjectServices";
@@ -100,23 +100,6 @@ export function* theoDoiGetProjectDetail() {
 
 
 
-function* getTaskTypeSaga(action) {
-    try {
-        const { data, status } = yield call(() => projectServices.getTypeTask())
-        if (status === STATUS_CODE.SUCCESS) {
-            yield put({
-                type: GET_TASK_TYPE,
-                typeTaskArr: data.content
-            })
-        }
-    } catch (err) {
-        console.log(err)
-    }
-}
-
-export function* theoDoiGetTypeTask() {
-    yield takeLatest(GET_TASK_TYPE_SAGA, getTaskTypeSaga)
-}
 
 
 
@@ -140,23 +123,7 @@ export function* theoDoiGetPriority() {
 }
 
 
-function* getStatusAllSaga(action) {
-    try {
-        const { data, status } = yield call(() => projectServices.getStatusAll())
-        if (status === STATUS_CODE.SUCCESS) {
-            yield put({
-                type: GET_STATUS_ALL,
-                arrStatus: data.content
-            })
-        }
-    } catch (err) {
-        console.log(err)
-    }
-}
 
-export function* theoDoiGetStatusAll() {
-    yield takeLatest(GET_STATUS_ALL_SAGA, getStatusAllSaga)
-}
 
 
 

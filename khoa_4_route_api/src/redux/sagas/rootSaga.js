@@ -5,7 +5,9 @@ import * as GetAllProjectCategory from './CyberBugs/ProjectCategorySaga';
 // import * as CreateProject from './CyberBugs/ProjectCyberBugsSaga';
 import * as UsersCyberBugSagaUpdate from './CyberBugs/UsersCyberBugSagaUpdate'
 import * as ProjectUpdateSaga from './CyberBugs/ProjectUpdateSaga'
-
+import * as TaskType from './CyberBugs/TaskTypeCyberBugSaga'
+import * as StatusType from './CyberBugs/StatusCyberBugSaga'
+import * as PriorityAll from './CyberBugs/PriorityCyberBugSaga'
 export function * rootSaga(){
 
     // yield fork(getTaskApi); // ham non blocking bat dong bo chay khong can cho nhau
@@ -41,7 +43,12 @@ export function * rootSaga(){
       ProjectUpdateSaga.theoDoiUpdateProjectSaga(),
       ProjectUpdateSaga.theoDoiDeleteProjectSaga(),
       ProjectUpdateSaga.theoDoiAssignUserTaskSaga(),
-      ProjectUpdateSaga.theoDoiRemoveUserFromProjectSaga()
+      ProjectUpdateSaga.theoDoiRemoveUserFromProjectSaga(),
+      ProjectUpdateSaga.theoDoiGetProjectDetailSaga(),
+      TaskType.theoDoiGetTypeTask(),
+      StatusType.theoDoiGetStatusAll(),
+      PriorityAll.theoDoiGetPriority()
+
 
    ])
 

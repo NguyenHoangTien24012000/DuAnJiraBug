@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ReactHtmlParser from "react-html-parser";
-import { CHANGE_ASSIGNESS, CHANGE_TASK_MODAL, GET_PRIORITY_SAGA, GET_STATUS_ALL_SAGA, GET_TASK_TYPE_SAGA, GET_USER_BY_PROJECT_ID_SAGA, HANDLE_CHANGE_TASK_POST_API_SAGA, REMOVE_USER_TASK, TASK_DETAIL_MODAIL } from '../../../redux/types/CyberBugsTypes';
+import { CHANGE_ASSIGNESS, CHANGE_TASK_MODAL, GET_USER_BY_PROJECT_ID_SAGA, HANDLE_CHANGE_TASK_POST_API_SAGA, REMOVE_USER_TASK, TASK_DETAIL_MODAIL } from '../../../redux/types/CyberBugsTypes';
 import { update_status_task_action } from '../../../redux/actions/CyberBugsAction';
 import { Editor } from '@tinymce/tinymce-react';
 import { Select } from 'antd';
+import { get_task_type_action } from '../../../redux/actions/TaskTypeAction';
+import { status_all_action } from '../../../redux/actions/StatusAction';
+import { get_priority_action } from '../../../redux/actions/PriorityAction';
 const { Option } = Select;
 export default function ModalCyberBugs(props) {
     const { taskDetailModel } = useSelector(state => state.TaskDetailReducer)
@@ -16,15 +19,9 @@ export default function ModalCyberBugs(props) {
 
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch({
-            type: GET_STATUS_ALL_SAGA
-        })
-        dispatch({
-            type: GET_PRIORITY_SAGA
-        })
-        dispatch({
-            type: GET_TASK_TYPE_SAGA
-        })
+        dispatch(status_all_action())
+        dispatch(get_priority_action())
+        dispatch(get_task_type_action)
 
     }, [])
 

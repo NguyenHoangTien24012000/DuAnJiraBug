@@ -3,7 +3,8 @@ import { useSelector,useDispatch } from 'react-redux'
 import ContentMain from '../../components/CyberBugs/Main/ContentMain'
 import HeaderMain from '../../components/CyberBugs/Main/HeaderMain'
 import InfoMain from '../../components/CyberBugs/Main/InfoMain'
-import { GET_PROJECT_DETAIL_SAGA } from '../../redux/types/CyberBugsTypes'
+import { get_project_detail_action } from '../../redux/actions/ProjectAction'
+
 
 
 export default function IndexCyberBugs(props) {
@@ -15,10 +16,7 @@ export default function IndexCyberBugs(props) {
   useEffect(()=>{
     const {projectId} = props.match.params;
  
-    dispatch({
-      type : GET_PROJECT_DETAIL_SAGA,
-      projectId : projectId
-    })
+    dispatch(get_project_detail_action(projectId))
   },[])
 
   return (

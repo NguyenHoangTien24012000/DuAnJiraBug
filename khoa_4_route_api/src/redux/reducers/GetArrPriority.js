@@ -1,4 +1,5 @@
-import { GET_PRIORITY } from "../types/CyberBugsTypes"
+
+import { SET_PRIORITY } from "../types/PriorityType"
 
 const initialState = {
     arrPriority : []
@@ -7,7 +8,7 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
 
-    case GET_PRIORITY:
+    case SET_PRIORITY:
         return { ...state, arrPriority : action.arrPriority }
 
     default:

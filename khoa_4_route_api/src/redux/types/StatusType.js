@@ -1,0 +1,3 @@
+export const GET_STATUS_ALL_SAGA = 'GET_STATUS_ALL_SAGA'
+
+export const SET_STATUS_ALL = 'GET_STATUS_ALL'

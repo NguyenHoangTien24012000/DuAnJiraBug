@@ -23,6 +23,9 @@ class ProjectServicesUpdate extends BaseServices {
     removeUserFromProject = (user) =>{
         return this.post(`Project/removeUserFromProject`,user)
     }
+    getProjectDetail = (projectId) =>{
+        return this.get(`Project/getProjectDetail?id=${projectId}`)
+    }
 }
 
 export const projectServiesUpdate = new ProjectServicesUpdate()

@@ -6,18 +6,12 @@ export class ProjectServices extends BaseServices{
         super();
     }
     
-    getProjectDetail = (projectId) =>{
-        return this.get(`Project/getProjectDetail?id=${projectId}`)
-    }
+  
     getTypeTask = () =>{
         return this.get(`TaskType/getAll`)
     }
-    getPriority = () =>{
-        return this.get(`Priority/getAll`)
-    }
-    getStatusAll = () =>{
-        return this.get(`Status/getAll`)
-    }
+ 
+   
     getUserByProjectId = (idProject) =>{
         return this.get(`Users/getUserByProjectId?idProject=${idProject}`)
     }

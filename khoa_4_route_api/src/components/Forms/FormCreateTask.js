@@ -4,8 +4,15 @@ import { Editor } from '@tinymce/tinymce-react';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector,connect } from 'react-redux';
 import { Select, Slider } from 'antd';
-import { CREATE_TASK_SAGA, GET_LIST_PROJECT_SAGA, GET_PRIORITY_SAGA, GET_STATUS_ALL_SAGA, GET_TASK_TYPE_SAGA, GET_USER_BY_PROJECT_ID_SAGA, GET_USER_SAGA } from '../../redux/types/CyberBugsTypes';
+import { CREATE_TASK_SAGA, GET_USER_BY_PROJECT_ID_SAGA } from '../../redux/types/CyberBugsTypes';
+
+
 import { withFormik, yupToFormErrors } from 'formik';
+import { get_all_project_action } from '../../redux/actions/ProjectAction';
+import { get_task_type_action } from '../../redux/actions/TaskTypeAction';
+import { status_all_action } from '../../redux/actions/StatusAction';
+import { get_priority_action } from '../../redux/actions/PriorityAction';
+import { get_user_action } from '../../redux/actions/UsersAction';
 function FormCreateTask(props) {
     const { project } = useSelector(state => state.ProjectCyberBugsReducer)
     const { typeTaskArr } = useSelector(state => state.TypeProjectCyberBugs)
@@ -46,22 +53,12 @@ function FormCreateTask(props) {
 
 
     useEffect(() => {
-        dispatch({
-            type: GET_LIST_PROJECT_SAGA
-        })
-        dispatch({
-            type: GET_TASK_TYPE_SAGA
-        })
-        dispatch({
-            type: GET_PRIORITY_SAGA
-        })
-        dispatch({
-            type: GET_USER_SAGA,
-            value: ''
-        })
-        dispatch({
-            type : GET_STATUS_ALL_SAGA
-        })
+        dispatch(get_all_project_action())
+            
+        dispatch(get_task_type_action())
+        dispatch(get_priority_action())
+        dispatch(get_user_action(''))
+        dispatch(status_all_action())
         dispatch({
             type : "SET_SUBMIT_CREATE_TASK",
             submitFunction : handleSubmit
