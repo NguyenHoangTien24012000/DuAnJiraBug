@@ -1,4 +1,5 @@
-import { PUT_PROJECT_DETAIL } from "../types/CyberBugsTypes"
+
+import { EDIT_PROJECT,PUT_PROJECT_DETAIL } from "../types/ProjectEditType"
 
 const initialState = {
     projectEdit:
@@ -17,7 +18,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case  'EDIT_PROJECT' : {
+        case  EDIT_PROJECT : {
             return {...state,projectEdit : action.projectEditModel}
         }
 

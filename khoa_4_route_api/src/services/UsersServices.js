@@ -9,6 +9,9 @@ class UsersServices extends BaseServices {
     signinCyberBugs = (userLogin) =>{
         return this.post(`Users/signin`, userLogin)
     }
+    getUser = (value) =>{
+        return this.get(`Users/getUser?keyword=${value}`)
+    }
 }
 
 

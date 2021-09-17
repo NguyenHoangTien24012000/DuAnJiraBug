@@ -34,9 +34,14 @@ export function * rootSaga(){
       //   CreateProject.theoDoiGetTaskDetail(),
       // CreateProject.theoDoiHandelChangeTaskPostApi()
       UsersCyberBugSagaUpdate.theoDoiSignIn(),
+      UsersCyberBugSagaUpdate.theoDoiGetUser(),
       GetAllProjectCategory.theoDoiGetAllProjectCateGory(),
-      ProjectUpdateSaga.theoDoiCreateProjectSaga()
-        
+      ProjectUpdateSaga.theoDoiCreateProjectSaga(),
+      ProjectUpdateSaga.theoDoiGetAllProjectSaga(),
+      ProjectUpdateSaga.theoDoiUpdateProjectSaga(),
+      ProjectUpdateSaga.theoDoiDeleteProjectSaga(),
+      ProjectUpdateSaga.theoDoiAssignUserTaskSaga(),
+      ProjectUpdateSaga.theoDoiRemoveUserFromProjectSaga()
 
    ])
 

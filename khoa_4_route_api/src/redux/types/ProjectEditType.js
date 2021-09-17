@@ -1,0 +1,3 @@
+export const EDIT_PROJECT = 'EDIT_PROJECT'
+
+export const PUT_PROJECT_DETAIL ='PUT_PROJECT_DETAIL'

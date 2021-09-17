@@ -12,24 +12,7 @@ import { notifiFuntion } from "../../../util/Notification/notifictionCyberBugs";
 
 
 
-function* getUserSaga(action) {
-    try{
-        const {data,status} = yield call(() =>userServices.getUser(action.value))
-        if(status === STATUS_CODE.SUCCESS){
-        
-            yield put({
-                type : GET_USER,
-                dataUser : data.content
-            })
-        }
-    }catch(err){
-        console.log(err.response.data)
-    }
-}
 
-export function* theoDoiGetUser() {
-    yield takeLatest(GET_USER_SAGA,getUserSaga )
-}
 
 
 

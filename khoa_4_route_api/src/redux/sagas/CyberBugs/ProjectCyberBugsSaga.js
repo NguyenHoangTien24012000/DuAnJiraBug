@@ -1,12 +1,13 @@
 import { call, delay, put, select, takeLatest } from "redux-saga/effects";
 import { cyberbugsService } from "../../../services/CyberBugsServices";
 import { STATUS_CODE } from "../../../util/constants/settingSystem";
-import { CHANGE_ASSIGNESS, CHANGE_TASK_MODAL, CREATE_PROJECT_CATEGORY_SAGA, CREATE_TASK_SAGA, DELETE_PROJECT_SAGA, GET_LIST_PROJECT, GET_LIST_PROJECT_SAGA, GET_PRIORITY, GET_PRIORITY_SAGA, GET_PROJECT_DETAIL_SAGA, GET_STATUS_ALL, GET_STATUS_ALL_SAGA, GET_TASK_DETAIL_SAGA, GET_TASK_TYPE, GET_TASK_TYPE_SAGA, GET_USER_BY_PROJECT_ID, GET_USER_BY_PROJECT_ID_SAGA, HANDLE_CHANGE_TASK_POST_API_SAGA, PUT_PROJECT_DETAIL, REMOVE_USER_TASK, TASK_DETAIL_MODAIL, TASK_DETAIL_MODAIL_SAGA, UPDATE_PROJECT, UPDATE_STATUS_TASK_SAGA, UP_DATE_PROJECT_SAGA } from "../../types/CyberBugsTypes";
+import { CHANGE_ASSIGNESS, CHANGE_TASK_MODAL, CREATE_PROJECT_CATEGORY_SAGA, CREATE_TASK_SAGA, DELETE_PROJECT_SAGA, GET_LIST_PROJECT, GET_LIST_PROJECT_SAGA, GET_PRIORITY, GET_PRIORITY_SAGA, GET_PROJECT_DETAIL_SAGA, GET_STATUS_ALL, GET_STATUS_ALL_SAGA, GET_TASK_DETAIL_SAGA, GET_TASK_TYPE, GET_TASK_TYPE_SAGA, GET_USER_BY_PROJECT_ID, GET_USER_BY_PROJECT_ID_SAGA, HANDLE_CHANGE_TASK_POST_API_SAGA, REMOVE_USER_TASK, TASK_DETAIL_MODAIL, TASK_DETAIL_MODAIL_SAGA, UPDATE_PROJECT, UPDATE_STATUS_TASK_SAGA, UP_DATE_PROJECT_SAGA } from "../../types/CyberBugsTypes";
 import { DISPLAY_LOADING, HIDE_LOADING } from "../../types/LoadingConst";
 import { history } from "../../../util/history";
 import { projectServices } from "../../../services/ProjectServices";
 import { notifiFuntion } from "../../../util/Notification/notifictionCyberBugs";
 import { userServices } from "../../../services/UserServices";
+import { PUT_PROJECT_DETAIL } from "../../types/ProjectEditType";
 
 
 
@@ -65,65 +66,9 @@ export function* theoDoiGetListProjectCyberBugs() {
 }
 
 
-function* upDateProjectCyberBugsSaga(action) {
-
-    yield put({
-        type: DISPLAY_LOADING,
-    })
-    yield delay(1000)
-    try {
-        const { data, status } = yield call(() => cyberbugsService.updateProject(action.projectUpdate))
-        if (status === STATUS_CODE.SUCCESS) {
-            yield put({
-                type: GET_LIST_PROJECT_SAGA
-            })
-            yield put({
-                type: 'CLOSE_DRAWER'
-            })
-        }
-    } catch (err) {
-        console.log(err.response.data)
-    }
-    yield put({
-        type: HIDE_LOADING
-    })
-}
-
-
-export function* theoDoiUpdateProjectCyberBugsSaga() {
-    yield takeLatest(UP_DATE_PROJECT_SAGA, upDateProjectCyberBugsSaga)
-}
 
 
 
-function* deleteProjectCyberBugsSaga(action) {
-    yield put({
-        type: DISPLAY_LOADING
-    })
-    yield delay(1000)
-    try {
-        const { data, status } = yield call(() => projectServices.deleteProject(action.id))
-        if (status === STATUS_CODE.SUCCESS) {
-            yield put({
-                type: GET_LIST_PROJECT_SAGA
-            })
-            notifiFuntion('success', 'Delete project successfuly !!', '')
-        } else {
-            notifiFuntion('error', 'Delete project fail !!', '')
-        }
-    } catch (err) {
-        console.log(err.response.data)
-        notifiFuntion('error', 'Delete project fail !!', '')
-    }
-    yield put({
-        type: HIDE_LOADING
-    })
-}
-
-
-export function* theoDoiDeleteProjectCyberBugsSaga() {
-    yield takeLatest(DELETE_PROJECT_SAGA, deleteProjectCyberBugsSaga)
-}
 
 
 function* getProjectDetailCyberBugsSaga(action) {

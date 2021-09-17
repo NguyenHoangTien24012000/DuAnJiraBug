@@ -7,26 +7,12 @@ import {  ADD_USER_PROJECT_SAGA, CREATE_PROJECT_CATEGORY_SAGA, DELETE_PROJECT_SA
 
 
 
-export const get_list_project_action = () =>({
-    type : GET_LIST_PROJECT_SAGA
-})
 
 
-export const update_project_action =(projectUpdate)=> ({
-    type : UP_DATE_PROJECT_SAGA,
-    projectUpdate : projectUpdate
-})
 
 
-export const delete_project_action = (id) =>({
-    type : DELETE_PROJECT_SAGA,
-    id : id
-})
 
-export const get_user_action = (value) =>({
-    type : GET_USER_SAGA,
-    value : value
-})
+
 
 
 export const add_user_project_action =(projectId, userId) =>({

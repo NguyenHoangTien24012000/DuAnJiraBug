@@ -3,7 +3,7 @@ import { withFormik } from 'formik';
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, connect, useSelector } from 'react-redux'
 import * as Yup from 'yup'
-import { get_project_action, update_project_action } from '../../redux/actions/CyberBugsAction';
+import {  update_project_action } from '../../redux/actions/ProjectAction';
 import { get_project_category_action } from '../../redux/actions/ProjectCategoryAction';
 
 function FormEditProject(props) {

@@ -4,9 +4,7 @@ export class UserServices extends BaseServices{
     constructor(){
         super();
     }
-    getUser = (value) =>{
-        return this.get(`Users/getUser?keyword=${value}`)
-    }
+    
     assignUserProject = (userProject) =>{
         return this.post(`Project/assignUserProject`, userProject)
     }
